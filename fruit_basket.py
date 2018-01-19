@@ -21,7 +21,11 @@ def main():
   
   while True: # begin user input prompts
     print('\n To begin using me please type "u". To exit please type "e".')
-    userCommand = str(input()).lower()
+    try:
+    	userCommand = str(input()).lower() 
+    except ValueError: # accept ValueErrors, report it to user and repeat loop
+    	print('Please only enter a string.')
+    	continue
     if userCommand == "u":
       guessFruit(fruitBasket)
     elif userCommand == "e":
